@@ -1,0 +1,14 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.RouterB.index()
+GET     /b1                         controllers.RouterB.b1()
+GET     /b2                         controllers.RouterB.b2()
+GET     /b3                         controllers.RouterB.b3()
+
+->		/c                          routerc.Routes
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
