@@ -49,3 +49,6 @@ GET     /b/c3                       controllers.RouterC.index()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 ```
+
+##NOTE
+JapidViews cannot be bundled inside the published modules itself. Currently the JapidViews should be copied to the main application's japidroot or inside the main source base and that path needs to be provided in the Global.java  
