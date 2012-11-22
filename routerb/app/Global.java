@@ -1,4 +1,3 @@
-
 import play.Application;
 import play.GlobalSettings;
 import play.Play;
@@ -8,15 +7,12 @@ import play.mvc.Results;
 import cn.bran.japid.template.JapidRenderer;
 import cn.bran.play.JapidController;
 
-public class Global extends GlobalSettings {
-    @Override
-	public void onStart(Application app) {
-	JapidRenderer.init(app);
-	JapidRenderer.gen();
-	// there are more customization you can do to Japid
-	//JapidRenderer.addImportStatic(StringUtils.class);
-	//JapidRenderer.setLogVerbose(true);
-    }
+public class Global extends JapidRenderer {
+	@Override
+	public void onStartJapid() {
+		setTemplateRoot("japidroot", "japidroot");
+		setLogVerbose(false);
+	}
 
 	@Override
 	public Result onError(RequestHeader h, Throwable t) {
@@ -37,12 +33,10 @@ public class Global extends GlobalSettings {
 	@Override
 	public Result onHandlerNotFound(RequestHeader r) {
 		// usually one need to use a customized error reporting in production.
-		// 
+		//
 		if (Play.application().isProd() || Play.application().isDev())
 			return Results.notFound(JapidController.renderJapidWith("onHandlerNotFound.html", r));
 		else
 			return super.onHandlerNotFound(r);
 	}
-
-    
 }

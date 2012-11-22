@@ -13,7 +13,7 @@ object ApplicationBuild extends Build {
        javaJdbc,
        javaEbean,
        "routerb" % "routerb_2.10" % "1.0-SNAPSHOT",
-       "japid42" % "japid42_2.10" % "0.5.2"
+       "japid42" % "japid42_2.10" % "0.7.1"
     )
 
     val main = play.Project(appName, appVersion, appDependencies).settings(

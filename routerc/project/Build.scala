@@ -12,7 +12,7 @@ object ApplicationBuild extends Build {
        javaCore,
        javaJdbc,
        javaEbean,
-       "japid42" % "japid42_2.10" % "0.5.2"
+       "japid42" % "japid42_2.10" % "0.7.1"
     )
 
     val main = play.Project(appName, appVersion, appDependencies).settings(
